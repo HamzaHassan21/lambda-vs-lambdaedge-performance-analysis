@@ -67,6 +67,8 @@ Exhibits typical cold starts and regional latency
 
 Each tool includes a badge for clarity and presentation.
 
+[AWS Lambda – regional execution](https://aws.amazon.com/lambda/)
+
 AWS Lambda – regional execution
 
 Lambda@Edge – edge execution
