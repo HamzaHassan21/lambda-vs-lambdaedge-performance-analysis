@@ -1,5 +1,5 @@
-AWS Lambda vs Lambda@Edge: Edge Computing Performance Analysis
-Overview
+## AWS Lambda vs Lambda@Edge: Edge Computing Performance Analysis
+# Overview
 
 This project evaluates the performance differences between AWS Lambda (regional execution) and Lambda@Edge (global edge execution) using a realistic scenario:
 personalising a static website based on the user’s geographic location.
@@ -12,17 +12,17 @@ Distributed globally across CloudFront edge locations (Lambda@Edge)
 
 The study focuses on:
 
-⚡ Latency
+# ⚡ Latency
 
-🧊 Cold starts
+# 🧊 Cold starts
 
-🗺️ Geographic performance
+# 🗺️ Geographic performance
 
-📦 Cache behaviour
+# 📦 Cache behaviour
 
-📈 Scalability under load
+# 📈 Scalability under load
 
-Key Features
+## Key Features
 
 🌍 Geo-personalised static website served via CloudFront
 
@@ -36,8 +36,8 @@ Key Features
 
 🌎 Global testing using VPNs to simulate remote users
 
-Architecture
-1. Lambda@Edge – Edge Execution
+## Architecture
+## 1. Lambda@Edge – Edge Execution
 User → CloudFront → Lambda@Edge → S3 Static Website → Response
 
 
@@ -53,7 +53,7 @@ Rewrites the request to region-specific content:
 
 CloudFront caching accelerates repeated requests
 
-2. Regional Lambda – Baseline Execution
+## 2. Regional Lambda – Baseline Execution
 User → API Gateway → Regional Lambda → Response
 
 
@@ -63,7 +63,7 @@ Provides centralised comparison
 
 Exhibits typical cold starts and regional latency
 
-Tools & Technologies
+## Tools & Technologies
 
 Each tool includes a badge for clarity and presentation.
 
@@ -87,11 +87,11 @@ Python – Lambda function development
 
 GitHub – documentation and code management
 
-Testing Methodology
+## Testing Methodology
 
 Designed to be robust, repeatable, and academically rigorous.
 
-1. Baseline Latency Comparison
+## 1. Baseline Latency Comparison
 
 Compare Lambda@Edge vs Regional Lambda
 
@@ -119,7 +119,7 @@ Coefficient of variation
 
 ⚠️ Note: VPN routing can introduce additional hops and noise, but still provides useful trend comparisons.
 
-2. Cache Behaviour (HIT vs MISS)
+## 2. Cache Behaviour (HIT vs MISS)
 
 Force cache miss:
 
@@ -134,7 +134,7 @@ Repeated-request HIT latency
 
 CloudFront caching consistency & performance
 
-3. Cold Start Analysis
+## 3. Cold Start Analysis
 
 Let functions idle for ~45 minutes.
 
@@ -148,7 +148,7 @@ Warm vs cold differences
 
 Compare regional cold-start severity vs edge
 
-4. Concurrency & Scalability Testing
+## 4. Concurrency & Scalability Testing
 
 Simulate concurrent users:
 
@@ -170,7 +170,7 @@ P99 latency
 
 Error rates / throttling
 
-5. Payload Size Variation
+## 5. Payload Size Variation
 
 Test HTML files of different sizes:
 
@@ -188,7 +188,7 @@ Total download time
 
 Latency differences between region vs edge
 
-6. Geographic Performance Evaluation
+## 6. Geographic Performance Evaluation
 
 Use VPNs to simulate long-distance user requests
 
@@ -223,15 +223,19 @@ Exhibit more pronounced cold starts
 
 Be less efficient for globally distributed workloads
 
-References
+## References
 
 (Preserved exactly as provided)
 
 [Full reference list unchanged for academic integrity — copy from your version]
 
-Author
-
-Hamza Hassan
+## Author
+## Hamza Hassan
 Final-Year Computer Science Student
 Cloud & DevOps Enthusiast
 Focused on Serverless and Edge Architectures
+
+## 📫 Connect with Me
+[LinkedIn](https://www.linkedin.com/in/hamzahassan21/)
+[Youtube](https://www.youtube.com/channel/UC51JEAEBV8WXwf2ZLROvUJw)
+
