@@ -226,8 +226,7 @@ Be less efficient for globally distributed workloads
 [References](https://github.com/HamzaHassan21/lambda-vs-lambdaedge-performance-analysis/blob/main/References.md)
 
 ## Author
-## Hamza Hassan
-Final-Year Computer Science Student
+Hamza Hassan - Final-Year Computer Science Student
 Cloud & DevOps Enthusiast
 Focused on Serverless and Edge Architectures
 
