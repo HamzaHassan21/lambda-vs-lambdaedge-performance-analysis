@@ -12,29 +12,29 @@ Distributed globally across CloudFront edge locations (Lambda@Edge)
 
 The study focuses on:
 
-⚡ Latency
++ Latency
 
-🧊 Cold starts
++ Cold starts
 
-🗺️ Geographic performance
++ Geographic performance
 
-📦 Cache behaviour
++ Cache behaviour
 
-📈 Scalability under load
++ Scalability under load
 
 ## Key Features
 
-🌍 Geo-personalised static website served via CloudFront
++ Geo-personalised static website served via CloudFront
 
 ⚡ Lambda@Edge rewrites requests based on user country
 
-☁️ Regional Lambda used as a baseline for comparison
++ Regional Lambda used as a baseline for comparison
 
-📊 Rigorous, research-backed testing methodology
++ Rigorous, research-backed testing methodology
 
-📈 Statistical performance analysis (variance, medians, percentiles)
++ Statistical performance analysis (variance, medians, percentiles)
 
-🌎 Global testing using VPNs to simulate remote users
++ Global testing using VPNs to simulate remote users
 
 ## Architecture
 ## 1. Lambda@Edge – Edge Execution
