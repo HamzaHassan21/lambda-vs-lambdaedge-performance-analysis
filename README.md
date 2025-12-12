@@ -1,5 +1,6 @@
 # AWS Lambda vs Lambda@Edge: Edge Computing Performance Analysis
-# Overview
+
+## Overview
 
 This project evaluates the performance differences between AWS Lambda (regional execution) and Lambda@Edge (global edge execution) using a realistic scenario:
 personalising a static website based on the user’s geographic location.
