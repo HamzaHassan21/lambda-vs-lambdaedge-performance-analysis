@@ -38,30 +38,30 @@ The study focuses on:
 + Global testing using VPNs to simulate remote users
 
 ## Architecture
-## 1. Lambda@Edge – Edge Execution
+
+### 1. Lambda@Edge – Edge Execution
+
+![Lambda@Edge Execution Flow](System-Diagrams/Lambda@EdgeFlow.png)
+
 User → CloudFront → Lambda@Edge → S3 Static Website → Response
 
-
-Reads the CloudFront-Viewer-Country header
-
+Reads the CloudFront-Viewer-Country header  
 Rewrites the request to region-specific content:
 
-🇬🇧 UK → uk.html
-
-🇸🇬 Singapore → sg.html
-
-🌐 Default → index.html
+🇬🇧 UK → uk.html  
+🇸🇬 Singapore → sg.html  
+🌐 Default → index.html  
 
 CloudFront caching accelerates repeated requests
 
-## 2. Regional Lambda – Baseline Execution
+### 2. Regional Lambda – Baseline Execution
+
+![Regional Lambda Execution Flow](System-Diagrams/RegionalLambdaFlow.png)
+
 User → API Gateway → Regional Lambda → Response
 
-
-Implements the same geo-routing logic
-
-Provides centralised comparison
-
+Implements the same geo-routing logic  
+Provides a centralised comparison baseline  
 Exhibits typical cold starts and regional latency
 
 ## Tools & Technologies
