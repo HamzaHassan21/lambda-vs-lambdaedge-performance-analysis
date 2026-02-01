@@ -44,6 +44,7 @@ Explicit acknowledgement of real-world constraints (VPN routing noise, observabi
 
 Execution flow:
 ![AWS Lambda@Edge](System-Diagrams/Lambda@EDGEFlow.png)
+
 User → CloudFront → Lambda@Edge (Viewer Request) → S3 Static Content → Response
 
 Lambda@Edge executes at the CloudFront edge location closest to the user
