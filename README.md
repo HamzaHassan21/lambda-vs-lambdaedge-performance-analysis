@@ -1,68 +1,93 @@
 # AWS Lambda vs Lambda@Edge: Edge Computing Performance Analysis
+# Overview
 
-## Overview
+This project investigates the performance and architectural trade-offs between AWS Lambda (regional execution) and AWS Lambda@Edge (edge execution) using a realistic cloud-native use case: geo-personalisation of a static website.
 
-This project evaluates the performance differences between AWS Lambda (regional execution) and Lambda@Edge (global edge execution) using a realistic scenario:
-personalising a static website based on the user’s geographic location.
+Rather than benchmarking synthetic APIs, the project evaluates how identical request-routing logic behaves when executed:
 
-The goal is to understand how identical serverless logic behaves when executed:
+Centrally in a single AWS region using API Gateway and regional Lambda
 
-Centrally in a single AWS region (API Gateway → Lambda)
+Distributed globally across CloudFront edge locations using Lambda@Edge
 
-Distributed globally across CloudFront edge locations (Lambda@Edge)
+The primary objective is to critically evaluate when edge computing provides meaningful performance benefits, and when a regional serverless architecture remains more appropriate.
 
-The study focuses on:
+The analysis focuses on:
 
-+ Latency
+Latency and Time To First Byte (TTFB)
 
-+ Cold starts
+Cold start behaviour
 
-+ Geographic performance
+Geographic performance variation
 
-+ Cache behaviour
+Cache behaviour (HIT vs MISS)
 
-+ Scalability under load
+Scalability under increasing load
+
+Observability and monitoring limitations
 
 ## Key Features
 
-+ Geo-personalised static website served via CloudFront
+Geo-personalised static website delivered via Amazon CloudFront
 
-⚡ Lambda@Edge rewrites requests based on user country
+Lambda@Edge viewer-request function rewrites request URIs based on user country
 
-+ Regional Lambda used as a baseline for comparison
+Regional AWS Lambda implementation provides a controlled baseline comparison
 
-+ Rigorous, research-backed testing methodology
+Secure architecture using private S3 buckets and CloudFront Origin Access Control (OAC)
 
-+ Statistical performance analysis (variance, medians, percentiles)
+Research-aligned testing methodology designed for repeatability and fairness
 
-+ Global testing using VPNs to simulate remote users
+Explicit acknowledgement of real-world constraints (VPN routing noise, observability limits)
 
 ## Architecture
+### 1. Lambda@Edge – Edge Execution Architecture
 
-### 1. Lambda@Edge – Edge Execution
+Execution flow:
 
-![Lambda@Edge Execution Flow](System-Diagrams/Lambda@EDGEFlow.png)
+User → CloudFront → Lambda@Edge (Viewer Request) → S3 Static Content → Response
 
-User → CloudFront → Lambda@Edge → S3 Static Website → Response
+Lambda@Edge executes at the CloudFront edge location closest to the user
 
-Reads the CloudFront-Viewer-Country header  
-Rewrites the request to region-specific content:
+The function reads the CloudFront-Viewer-Country header
 
-🇬🇧 UK → uk.html  
-🇸🇬 Singapore → sg.html  
-🌐 Default → index.html  
+The request URI is rewritten to region-specific content, for example:
 
-CloudFront caching accelerates repeated requests
+🇬🇧 GB → uk.html
 
-### 2. Regional Lambda – Baseline Execution
+🇺🇸 US → us.html
 
-![Regional Lambda Execution Flow](System-Diagrams/LambdaRegionalFlow.png)
+🇸🇬 SG → sg.html
 
-User → API Gateway → Regional Lambda → Response
+🇦🇺 AU → au.html
 
-Implements the same geo-routing logic  
-Provides a centralised comparison baseline  
-Exhibits typical cold starts and regional latency
+🌐 Default → index.html
+
+Lambda@Edge does not access S3 directly; it performs request mutation only
+
+CloudFront caching operates on the rewritten URI, enabling edge cache HITs on subsequent requests
+
+S3 remains private and is accessible only through CloudFront using Origin Access Control
+
+Observability note:
+CloudWatch logs and metrics for Lambda@Edge are centralised, delayed, and aggregated, limiting fine-grained latency analysis at individual edge locations.
+
+### 2. Regional AWS Lambda – Baseline Architecture
+
+Execution flow:
+
+User → API Gateway → Regional AWS Lambda → Response
+
+All requests are routed to a single AWS region
+
+The same geo-routing logic is implemented for fairness of comparison
+
+The function does not fetch static files; it returns routing metadata
+
+No edge caching is involved
+
+Cold starts and execution duration are fully observable via CloudWatch
+
+This architecture provides a measurable and observable baseline against which Lambda@Edge performance is compared.
 
 ## Tools & Technologies
 
@@ -78,35 +103,42 @@ Exhibits typical cold starts and regional latency
 
 [Amazon CloudWatch – monitoring & metrics](https://aws.amazon.com/cloudwatch/) 
 
-[Postman – latency and load simulation](https://www.postman.com/)  
+[VPN – NORDVPN - Geolocation Simulation](https://aws.amazon.com/cloudwatch/) 
 
-[VPNs – simulate global users (with routing limitations)](https://nordvpn.com/)  
-
-[Python – Lambda function development](https://www.python.org/)  
+[Postman – latency and load simulation](https://www.postman.com/)
 
 [GitHub – documentation and code management](https://github.com/)  
 
 ## Testing Methodology
 
-Designed to be robust, repeatable, and academically rigorous.
+The testing methodology is designed to be repeatable, controlled, and academically defensible.
+At the IPD stage, the focus is on prototype validation and experimental design, with full benchmarking planned for the final report.
 
-## 1. Baseline Latency Comparison
+### 1. Baseline Latency Comparison
 
 Compare Lambda@Edge vs Regional Lambda
 
-Use VPNs to simulate UK, EU, US, and Asia
+Simulate users from:
 
-Repeat each test 30 times across 3 cycles
+UK
 
-Measure:
+US
 
-Total latency
+Singapore
 
-Lambda execution duration
+Australia
 
-CloudFront edge location
+Each test repeated across multiple iterations and cycles
 
-Compute:
+Metrics collected:
+
+Total request latency
+
+Time To First Byte (TTFB)
+
+CloudFront cache status (HIT / MISS)
+
+Statistical analysis planned:
 
 Mean
 
@@ -116,40 +148,35 @@ Standard deviation
 
 Coefficient of variation
 
-⚠️ Note: VPN routing can introduce additional hops and noise, but still provides useful trend comparisons.
+⚠️ VPN routing may introduce noise; results are analysed for trends, not absolute precision.
 
-## 2. Cache Behaviour (HIT vs MISS)
+### 2. Cache Behaviour (HIT vs MISS)
 
-Force cache miss:
-
-Cache-Control: no-cache
-
+Force cache MISS using cache-bypass techniques
 
 Measure:
 
-First-request MISS latency
+First-request latency (MISS)
 
-Repeated-request HIT latency
+Subsequent-request latency (HIT)
 
-CloudFront caching consistency & performance
+Evaluate CloudFront cache effectiveness after URI rewrite
 
-## 3. Cold Start Analysis
+### 3. Cold Start Analysis
 
-Let functions idle for ~45 minutes.
+Allow functions to idle for extended periods
 
 Capture:
 
-Init duration (cold start)
+Cold start indicators (Init Duration where available)
 
-Execution duration
+Warm execution behaviour
 
-Warm vs cold differences
+Compare cold-start visibility and impact between architectures
 
-Compare regional cold-start severity vs edge
+### 4. Concurrency & Scalability Testing
 
-## 4. Concurrency & Scalability Testing
-
-Simulate concurrent users:
+Planned concurrency levels:
 
 1
 
@@ -159,7 +186,7 @@ Simulate concurrent users:
 
 100
 
-Collect:
+Metrics:
 
 P50 latency
 
@@ -167,60 +194,54 @@ P90 latency
 
 P99 latency
 
-Error rates / throttling
+Error rates or throttling behaviour
 
-## 5. Payload Size Variation
+### 5. Geographic Performance Evaluation
 
-Test HTML files of different sizes:
-
-Small (~3 KB)
-
-Medium (~30 KB)
-
-Large (~300 KB with assets)
-
-Measure:
-
-TTFB (Time To First Byte)
-
-Total download time
-
-Latency differences between region vs edge
-
-## 6. Geographic Performance Evaluation
-
-Use VPNs to simulate long-distance user requests
+Use VPNs to simulate long-distance requests
 
 Acknowledge limitations:
 
-Extra routing layers
+Additional routing layers
 
-VPN server inconsistencies
+VPN endpoint inconsistencies
 
-Focus on latency trend differences, not absolute precision
+Focus on relative latency differences, not absolute measurements
 
-Compare:
+## Expected Outcomes
+### Lambda@Edge (Edge Execution)
 
-Lambda@Edge latency vs
-
-Regional Lambda latency over distance
-
-Expected Outcomes
 Lambda@Edge is expected to:
 
-Significantly reduce latency for global users
+Reduce perceived latency for globally distributed users through proximity and caching
 
-Deliver much faster repeated responses due to caching
+Deliver faster repeated responses due to CloudFront edge cache HITs
 
-Provide more stable performance under load
+Be most effective for lightweight, read-heavy workloads such as request routing and static content delivery
+
+Exhibit limited observability, with delayed and centralised CloudWatch logs
+
+### Regional AWS Lambda (Baseline Execution)
 
 Regional Lambda is expected to:
 
-Show increased latency for distant users
+Show increased latency for users far from the deployment region
 
-Exhibit more pronounced cold starts
+Exhibit more visible cold-start behaviour
 
-Be less efficient for globally distributed workloads
+Provide stronger observability and monitoring capabilities
+
+Serve as a stable baseline for evaluating the benefits and trade-offs of edge execution
+
+## Comparative Insight
+
+Overall, the comparison is expected to demonstrate that:
+
+Performance improvements from Lambda@Edge are driven primarily by edge caching and geographic proximity, not raw execution speed
+
+Regional Lambda remains preferable for workloads requiring strong observability, dynamic processing, or non-cacheable logic
+
+Edge computing is most beneficial when architectural conditions align with cacheable, latency-sensitive workloads
 
 ## References 
 
