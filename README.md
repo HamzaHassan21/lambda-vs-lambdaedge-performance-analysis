@@ -74,6 +74,7 @@ CloudWatch logs and metrics for Lambda@Edge are centralised, delayed, and aggreg
 ### 2. Regional AWS Lambda – Baseline Architecture
 
 Execution flow:
+[AWS Lambda – regional execution](System-Diagram/Lambda@EDGEFlow.png)  
 
 User → API Gateway → Regional AWS Lambda → Response
 
