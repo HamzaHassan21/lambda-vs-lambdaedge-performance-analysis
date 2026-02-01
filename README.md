@@ -41,7 +41,7 @@ The study focuses on:
 
 ### 1. Lambda@Edge – Edge Execution
 
-![Lambda@Edge Execution Flow](System-Diagrams/Lambda@EdgeFlow.png)
+![Lambda@Edge Execution Flow](System-Diagrams/Lambda@EDGEFlow.png)
 
 User → CloudFront → Lambda@Edge → S3 Static Website → Response
 
@@ -56,7 +56,7 @@ CloudFront caching accelerates repeated requests
 
 ### 2. Regional Lambda – Baseline Execution
 
-![Regional Lambda Execution Flow](System-Diagrams/RegionalLambdaFlow.png)
+![Regional Lambda Execution Flow](System-Diagrams/LambdaRegionalFlow.png)
 
 User → API Gateway → Regional Lambda → Response
 
