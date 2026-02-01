@@ -43,7 +43,7 @@ Explicit acknowledgement of real-world constraints (VPN routing noise, observabi
 ### 1. Lambda@Edge – Edge Execution Architecture
 
 Execution flow:
-
+![AWS Lambda@Edge](System-Diagrams/Lambda@EDGEFlow.png)
 User → CloudFront → Lambda@Edge (Viewer Request) → S3 Static Content → Response
 
 Lambda@Edge executes at the CloudFront edge location closest to the user
@@ -74,7 +74,7 @@ CloudWatch logs and metrics for Lambda@Edge are centralised, delayed, and aggreg
 ### 2. Regional AWS Lambda – Baseline Architecture
 
 Execution flow:
-[AWS Lambda – regional execution](System-Diagram/Lambda@EDGEFlow.png)  
+![Regional AWS Lambda](System-Diagrams/LambdaRegionalFlow.png)
 
 User → API Gateway → Regional AWS Lambda → Response
 
