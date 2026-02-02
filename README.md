@@ -208,6 +208,27 @@ Lambda@Edge is most effective for lightweight, cacheable, read-heavy workloads
 
 Architectural decisions should be guided by workload characteristics, not latency assumptions alone
 
+## Prototype Validation
+
+The following screenshots demonstrate the functional correctness and observable behaviour of the Lambda@Edge-based prototype.
+
+### Lambda@Edge Execution (curl)
+
+The curl output below confirms that Lambda@Edge executes at the viewer-request phase and rewrites the request URI based on the detected country.
+
+![Lambda@Edge curl output](images/curl-lambda-edge.png)
+
+Key observations:
+- `X-Debug-Country` confirms country detection
+- `X-Debug-URI` confirms URI rewriting
+- `X-Cache` indicates CloudFront cache behaviour (HIT / MISS)
+
+### Geo-Personalised Content (Browser)
+
+The browser output below demonstrates that the correct region-specific content is served to the client.
+
+![Geo-personalised website output](images/browser-geo-personalisation.png)
+
 ## Project Status
 
 Core architectures implemented and deployed
