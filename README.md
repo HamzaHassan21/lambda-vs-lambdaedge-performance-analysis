@@ -229,6 +229,8 @@ The browser output below demonstrates that the correct region-specific content i
 
 ![Geo-personalised website output](images/lambda-egde/browser-uk-version.png)
 
+**Incognito Mode** 
+
 ## Project Status
 
 Core architectures implemented and deployed
