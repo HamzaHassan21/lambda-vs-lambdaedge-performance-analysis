@@ -226,6 +226,12 @@ This repository supports the Interim Progression Demonstration (IPD) and represe
 
 [References](https://github.com/HamzaHassan21/lambda-vs-lambdaedge-performance-analysis/blob/main/References.md)
 
+## IPD Presentation Video
+
+A recorded presentation explaining the project motivation, architecture, prototype, and testing methodology is available here:
+
+📺 https://youtu.be/XXXXXXXXXXX
+
 ## Author Hamza Hassan - Final-Year Computer Science Student, Cloud & DevOps Enthusiast
 
 ## 📫 Connect with Me
