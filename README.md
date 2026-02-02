@@ -96,7 +96,7 @@ This architecture provides a measurable and observable baseline against which La
 
 The screenshot below shows CloudWatch execution logs for the regional AWS Lambda baseline.
 
-![CloudWatch Streams](images/lambda-regiona/Cloudwatch-Execution.PNG)
+![CloudWatch Streams](images/lambda-regional/Cloudwatch-Execution.PNG)
 
 
 Key observations:
