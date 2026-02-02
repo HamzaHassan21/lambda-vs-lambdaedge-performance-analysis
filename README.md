@@ -42,7 +42,7 @@ Explicit acknowledgement of real-world constraints (caching effects, observabili
 ## Architecture
 ### 1. Lambda@Edge – Edge Execution Architecture
 
-Execution flow:
+#### Execution flow:
 ![AWS Lambda@Edge](System-Diagrams/Lambda@EDGEFlow.png)
 
 User → CloudFront → Lambda@Edge (Viewer Request) → S3 Static Content → Response
@@ -74,7 +74,8 @@ CloudWatch logs and metrics for Lambda@Edge are centralised, delayed, and aggreg
 
 ### 2. Regional AWS Lambda – Baseline Architecture
 
-Execution flow:
+#### Execution flow:
+
 ![Regional AWS Lambda](System-Diagrams/LambdaRegionalFlow.png)
 
 User → API Gateway → Regional AWS Lambda → Response
