@@ -227,7 +227,7 @@ Key observations:
 
 The browser output below demonstrates that the correct region-specific content is served to the client.
 
-![Geo-personalised website output](images/lambda-edge/browser-uk-version.png)
+![Geo-personalised website output](lambda-edge/browser-uk-version.png)
 
 ## Project Status
 
