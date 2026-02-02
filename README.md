@@ -92,6 +92,21 @@ Cold starts, execution duration, and invocation behaviour are fully observable v
 
 This architecture provides a measurable and observable baseline against which Lambda@Edge behaviour is evaluated.
 
+### Regional Lambda – Observability Evidence
+
+The screenshot below shows CloudWatch execution logs for the regional AWS Lambda baseline.
+
+![CloudWatch Streams](images/lambda-regiona/Cloudwatch-Execution.PNG)
+
+
+Key observations:
+- Full visibility into execution duration and init duration
+- Clear cold start detection
+- Per-request logging of routing decisions
+- Supports detailed latency and variability analysis
+
+This level of observability is not available for Lambda@Edge, forming part of the architectural trade-off evaluated in this project.
+
 ## Tools & Technologies
 
 [AWS Lambda – regional execution](https://aws.amazon.com/lambda/)  
