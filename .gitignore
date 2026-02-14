@@ -1,0 +1,68 @@
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =========================
+# Environment Variables / Secrets
+# =========================
+.env
+.env.*
+*.pem
+*.key
+*.crt
+*.p12
+.aws/
+aws-credentials.json
+
+# =========================
+# Node.js
+# =========================
+node_modules/
+package-lock.json
+npm-shrinkwrap.json
+
+# =========================
+# Python (if used)
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.sqlite3
+venv/
+.venv/
+env/
+ENV/
+
+# =========================
+# IDE / Editors
+# =========================
+.vscode/
+.idea/
+*.code-workspace
+
+# =========================
+# Build / Dist
+# =========================
+dist/
+build/
+out/
+
+# =========================
+# Coverage Reports
+# =========================
+coverage/
+*.lcov
