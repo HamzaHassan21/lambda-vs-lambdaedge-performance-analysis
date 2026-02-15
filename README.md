@@ -269,7 +269,8 @@ This repository supports the Interim Progression Demonstration (IPD) and represe
 A recorded presentation explaining the project motivation, architecture, prototype, and testing methodology is available here:
 
 📺 [Benchmarking AWS Lambda vs Lambda@Edge](https://www.youtube.com/watch?v=p4h4Zpi5DbU&t=399s)
-📺 [Architectural & Performance Evaluation](https://www.youtube.com/watch?v=EbT6csezZUM&t=203s)
+
+📺 [Architectural Evaluation](https://www.youtube.com/watch?v=EbT6csezZUM&t=203s)
 
 ## Author Hamza Hassan - Final-Year Computer Science Student, Cloud & DevOps Enthusiast
 
