@@ -264,9 +264,9 @@ This repository supports the Interim Progression Demonstration (IPD) and represe
 
 [References](https://github.com/HamzaHassan21/lambda-vs-lambdaedge-performance-analysis/blob/main/References.md)
 
-## IPD Presentation Video
+## IPD Presentation Video (YouTube)
 
-A recorded presentation explaining the project motivation, architecture, prototype, and testing methodology is available here:
+The recorded IPD presentation and accompanying architectural evaluation video are available below:
 
 📺 [Benchmarking AWS Lambda vs Lambda@Edge](https://www.youtube.com/watch?v=p4h4Zpi5DbU&t=399s)
 
