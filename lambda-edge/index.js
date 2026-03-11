@@ -1,61 +1,40 @@
-'use strict';
+'use scrict';
 
 exports.handler = async (event) => {
-  const cf = event.Records[0].cf;
+  const request = event.Records[0].cf.request;
+  const headers = requests.headers;
 
-  // Viewer Response 
-  if (cf.response) {
-    const response = cf.response;
-    const request = cf.request;
+  let country = 'DEFAULT';
 
-    const country = (request.headers['x-country-debug'] && request.headers['x-country-debug'][0])
-      ? request.headers['x-country-debug'][0].value
-      : 'NONE';
-
-    // Debug headers
-    response.headers['x-debug-country'] = [{ key: 'X-Debug-Country', value: country }];
-    response.headers['x-debug-uri'] = [{ key: 'X-Debug-URI', value: request.uri }];
-
-    // CloudWatch log 
-    console.log("EDGE_VIEWER_RESPONSE", JSON.stringify({
-      debugCountry: country,
-      uri: request.uri
-    }));
-
-    return response;
+  const cfCountry = headers['cloudfront-viewer-country'];
+  if (cfCountry && cfCountry[0] && cfCountry[0].value) {
+    country = cfCountry[0].value.toUpperCase();
   }
 
-  // Viewer Request 
-  const request = cf.request;
-  const headers = request.headers;
-
-  // Real geo (CloudFront header)
-  const h = headers['cloudfront-viewer-country'];
-  let country = (h && h[0] && h[0].value) ? h[0].value.toUpperCase() : 'DEFAULT';
-
-  // query override for demo/testing
-  // e.g. /?country=SG - Singapore
   if (request.querystring) {
-    const m = request.querystring.match(/(?:^|&)country=(GB|US|SG|AU)(?:&|$)/i);
-    if (m) country = m[1].toUpperCase();
+    const match = request.querystring.match(/(?:^|&)country=(GB|US|SG|AU)(?:&|$)/i);
+    if (match) {
+      country = match[1].toUpperCase();
+    }
   }
 
-  // store for viewer-response debug
-  request.headers['x-country-debug'] = [{ key: 'X-Country-Debug', value: country }];
+  const map = {
+    GB: '/assets/uk.html',
+    US: '/assets/us.html',
+    SG: '/assets/sg.html',
+    AU: '/assets/au.html'
+  };
 
-  const map = { GB: '/uk.html', US: '/us.html', SG: '/sg.html', AU: '/au.html' };
-  const target = map[country] || '/index.html';
+  const target = map[country] || '/assets/index.html';
 
   if (request.uri === '/' || request.uri === '/index.html') {
     request.uri = target;
   }
 
-  // CloudWatch log
-  console.log("EDGE_VIEWER_REQUEST", JSON.stringify({
+  console.log(JSON.stringify({
     country,
     target,
-    uri: request.uri,
-    qs: request.querystring
+    finalUri: request.uri
   }));
 
   return request;
