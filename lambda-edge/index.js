@@ -2,7 +2,7 @@
 
 exports.handler = async (event) => {
   const request = event.Records[0].cf.request;
-  const headers = requests.headers;
+  const headers = request.headers;
 
   let country = 'DEFAULT';
 
