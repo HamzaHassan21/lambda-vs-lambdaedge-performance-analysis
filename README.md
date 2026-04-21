@@ -1,4 +1,6 @@
 # AWS Lambda vs Lambda@Edge: Architectural and Performance Evaluation
+## A Controlled Performance Evaluation of Centralised vs Edge-Based Serverless Architectures
+
 ## Overview
 
 This project investigates the architectural and performance trade-offs between AWS Lambda (regional execution) and AWS Lambda@Edge (edge execution) using a realistic, cloud-native use case: geo-personalisation of a static website.
