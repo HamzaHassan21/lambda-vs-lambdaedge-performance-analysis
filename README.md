@@ -3,7 +3,7 @@
 
 ---
 
-## 📌 Overview
+##  Overview
 
 This project presents a controlled experimental evaluation of two serverless architectures:
 
@@ -18,11 +18,11 @@ Unlike many benchmarks, this project ensures fair comparison conditions by:
 - Using deterministic routing (`?country=XX`) instead of IP-based geolocation
 - Isolating key variables such as caching, cold starts, and geographic distance
 
-📄 **Final Dissertation:** [View Report](./FYP_FINAL.pdf)
+**Final Dissertation:** [View Report](./FYP_FINAL.pdf)
 
 ---
 
-## 🎯 Key Objectives
+##  Key Objectives
 
 - Compare latency and responsiveness between architectures
 - Analyse cold start vs warm execution behaviour
@@ -33,7 +33,7 @@ Unlike many benchmarks, this project ensures fair comparison conditions by:
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ### 1. Lambda@Edge (Distributed Edge Architecture)
 
@@ -93,7 +93,7 @@ This level of observability is not available for Lambda@Edge, forming part of th
 
 ---
 
-## ⚙️ Tools & Technologies
+## Tools & Technologies
 
 - [AWS Lambda – regional execution](https://aws.amazon.com/lambda/)
 - [Lambda@Edge – edge execution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-at-the-edge.html)
@@ -107,7 +107,7 @@ This level of observability is not available for Lambda@Edge, forming part of th
 
 ---
 
-## 🧪 Testing Methodology
+## Testing Methodology
 
 The testing methodology is designed to be controlled, repeatable, and academically defensible.
 
@@ -328,7 +328,7 @@ This aligns with the idea that:
 
 ---
 
-## 🔬 Methodological Strength
+## Methodological Strength
 
 This evaluation is stronger than typical benchmarks because it:
 
@@ -341,7 +341,7 @@ This evaluation is stronger than typical benchmarks because it:
 
 ---
 
-## 📊 Key Findings
+## Key Findings
 
 ### 1. Caching is the Dominant Factor
 
@@ -383,7 +383,7 @@ Edge reduces latency by 80%+ for distant users.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 System-Diagrams/
@@ -474,13 +474,13 @@ This repository supports the Interim Progression Demonstration (IPD) and represe
 
 The recorded IPD presentation and accompanying architectural evaluation video are available below:
 
-📺 [Benchmarking AWS Lambda vs Lambda@Edge](https://www.youtube.com/watch?v=p4h4Zpi5DbU&t=399s)
+[Benchmarking AWS Lambda vs Lambda@Edge](https://www.youtube.com/watch?v=p4h4Zpi5DbU&t=399s)
 
-📺 [Architectural Evaluation](https://www.youtube.com/watch?v=EbT6csezZUM&t=203s)
+[Architectural Evaluation](https://www.youtube.com/watch?v=EbT6csezZUM&t=203s)
 
 ## Author Hamza Hassan - Final-Year Computer Science Student, Cloud & DevOps Enthusiast
 
-## 📫 Connect with Me
+## Connect with Me
 [LinkedIn](https://www.linkedin.com/in/hamzahassan21/)
 [Youtube](https://www.youtube.com/channel/UC51JEAEBV8WXwf2ZLROvUJw)
 
