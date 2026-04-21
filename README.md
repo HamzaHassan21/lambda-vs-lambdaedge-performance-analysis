@@ -438,6 +438,13 @@ Key observations:
 - `X-Debug-URI` confirms URI rewriting
 - `X-Cache` indicates CloudFront cache behaviour (HIT / MISS)
 
+### Regional Lambda Execution (curl)
+
+The curl output below confirms that Lambda@Edge executes at the viewer-request phase and rewrites the request URI based on the detected country.
+
+![Lambda@Edge curl output](images/lambda-egde/curl-regional-uk-response.png)
+
+
 ### Geo-Personalised Content (Browser)
 
 The browser output below demonstrates that the correct region-specific content is served to the client.
