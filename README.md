@@ -265,7 +265,7 @@ Edge computing is most beneficial for globally distributed users.
 
 #### Geographic Comparison Graph
 
-![Geographic Comparison Graph](images/lambda-edge/geographic-comparison-graph.png)
+![Geographic Comparison Graph](images/lambda-regional/geographic-comparison-graph.png)
 
 #### Localised UK Testing
 
