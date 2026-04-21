@@ -269,10 +269,16 @@ Edge computing is most beneficial for globally distributed users.
 
 #### Localised UK Testing
 
+### Edinburgh Regional (VPN - Edinburgh)
 ![Edinburgh Regional](images/lambda-regional/edinburgh-regional.png)
+
+#### Edinburgh Edge (VPN - Edinburgh)
 ![Edinburgh Edge](images/lambda-edge/edinburgh-edge.png)
 
+#### Manchester Regional (VPN - Manchester)
 ![Manchester Regional](images/lambda-regional/manchester-regional.png)
+
+#### Manchester Edge (VPN - Manchester)
 ![Manchester Edge](images/lambda-edge/manchester-edge.png)
 
 ---
