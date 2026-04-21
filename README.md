@@ -188,12 +188,18 @@ This demonstrates that cache efficiency is the dominant factor in edge performan
 
 #### Cache MISS Responses
 
+##### cachebust=1
 ![Cache MISS 1](images/lambda-edge/cache-miss-1.png)
+
+##### cachebust=2
 ![Cache MISS 2](images/lambda-edge/cache-miss-2.png)
 
 #### Cache HIT Responses
 
+##### cachebust=1
 ![Cache HIT 1](images/lambda-edge/cache-hit-1.png)
+
+##### cachebust=2
 ![Cache HIT 2](images/lambda-edge/cache-hit-2.png)
 
 #### Cache HIT Consistency
