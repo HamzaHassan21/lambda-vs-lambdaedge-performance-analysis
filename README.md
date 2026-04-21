@@ -431,7 +431,7 @@ The following screenshots demonstrate the functional correctness and observable 
 
 The curl output below confirms that Lambda@Edge executes at the viewer-request phase and rewrites the request URI based on the detected country.
 
-![Lambda@Edge curl output](images/lambda-egde/curl-edge-uk-response.png)
+![Lambda@Edge curl output](images/lambda-edge/curl-edge-uk-response.png)
 
 Key observations:
 - `X-Debug-Country` confirms country detection
@@ -442,14 +442,14 @@ Key observations:
 
 The curl output below confirms that Lambda@Edge executes at the viewer-request phase and rewrites the request URI based on the detected country.
 
-![Lambda@Edge curl output](images/lambda-egde/curl-regional-uk-response.png)
+![Regional Lambda curl output](images/lambda-regional/curl-regional-uk-response.png)
 
 
 ### Geo-Personalised Content (Browser)
 
 The browser output below demonstrates that the correct region-specific content is served to the client.
 
-![Geo-personalised website output](images/lambda-egde/browser-uk-version.png)
+![Geo-personalised website output](images/lambda-egde/edge-uk-response.png)
 
 **Incognito Mode** 
 
