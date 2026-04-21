@@ -501,7 +501,7 @@ The curl output below confirms that Lambda@Edge executes at the viewer-request p
 
 The browser output below demonstrates that the correct region-specific content is served to the client.
 
-![Geo-personalised website output](images/lambda-egde/geo-personalised-incognito-output.png)
+![Geo-personalised website output](images/lambda-edge/geo-personalised-incognito-output.png)
 
 **Incognito Mode** 
 
