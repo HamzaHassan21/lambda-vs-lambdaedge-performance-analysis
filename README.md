@@ -256,7 +256,7 @@ Edge computing is most beneficial for globally distributed users.
 #### Singapore
 
 ![Singapore Regional](images/lambda-regional/regional-sg-browser.png)
-![Singapore Edge](images/lambda-edge/edge-sg-response.png)
+![Singapore Edge](images/lambda-edge/edge-browser-sg.png)
 
 #### Australia
 
