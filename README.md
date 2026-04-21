@@ -245,23 +245,23 @@ Edge computing is most beneficial for globally distributed users.
 
 #### United Kingdom (London)
 
-![UK Regional](images/lambda-regional/uk-regional.png)
-![UK Edge](images/lambda-edge/uk-edge.png)
+![UK Regional](images/lambda-regional/regional-uk-browser.png)
+![UK Edge](images/lambda-edge/edge-uk-response.png)
 
 #### United States
 
-![US Regional](images/lambda-regional/us-regional.png)
-![US Edge](images/lambda-edge/us-edge.png)
+![US Regional](images/lambda-regional/regional-us-browser.png)
+![US Edge](images/lambda-edge/edge-us-response.png)
 
 #### Singapore
 
-![Singapore Regional](images/lambda-regional/sg-regional.png)
-![Singapore Edge](images/lambda-edge/sg-edge.png)
+![Singapore Regional](images/lambda-regional/regional-sg-browser.png)
+![Singapore Edge](images/lambda-edge/edge-sg-response.png)
 
 #### Australia
 
-![Australia Regional](images/lambda-regional/au-regional.png)
-![Australia Edge](images/lambda-edge/au-edge.png)
+![Australia Regional](images/lambda-regional/regional-au-browser.png)
+![Australia Edge](images/lambda-edge/edge-au-response.png)
 
 #### Geographic Comparison Graph
 
