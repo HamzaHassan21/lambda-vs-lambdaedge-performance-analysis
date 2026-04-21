@@ -321,11 +321,10 @@ This aligns with the idea that:
 
 > Performance is not just about speed — but consistency over time
 
-#### Repeated Request Performance Graphs
+#### Repeated Request Performance Data
 
-![Regional Repeated Request Performance](images/lambda-regional/repeated-request-performance.png)
-![Edge Repeated Request Performance](images/lambda-edge/repeated-request-performance.png)
-
+[Regional Repeated Request Performance (CSV)](https://docs.google.com/spreadsheets/d/1tjmwQnoyNKvOy2IunOTN8f1GODAdBDJdHnlvmhahSLo/export?format=csv)
+[Edge Repeated Request Performance (CSV)](https://docs.google.com/spreadsheets/d/1spSnyH_Z4K3_2Zovmhn0jAik25bLC_dux6pfLFhwjYs/export?format=csv)
 ---
 
 ## Methodological Strength
