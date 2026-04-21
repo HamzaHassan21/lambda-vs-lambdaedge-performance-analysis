@@ -400,25 +400,71 @@ Edge reduces latency by 80%+ for distant users.
 ## Project Structure
 
 ```text
-System-Diagrams/
-assets/
-images/
-  lambda-edge/
-  lambda-regional/
-lambda-edge/
-  index.js
-lambda-regional/
-  index.js
 
-index.html
-uk.html
-us.html
-sg.html
-au.html
-
-styles.css
-README.md
-References.md
+├── System-Diagrams/
+│   ├── Lambda@EDGEFlow.png
+│   └── LambdaRegionalFlow.png
+│
+├── assets/
+│   ├── index.html
+│   ├── uk.html
+│   ├── us.html
+│   ├── sg.html
+│   ├── au.html
+│   └── styles.css
+│
+├── images/
+│   ├── lambda-edge/
+│   │   ├── cache-hit-1.png
+│   │   ├── cache-hit-2.png
+│   │   ├── cache-hit-consistency.png
+│   │   ├── cache-miss-1.png
+│   │   ├── cache-miss-2.png
+│   │   ├── cache-performance-graph.png
+│   │   ├── curl-edge-au-response.png
+│   │   ├── curl-edge-index-response.png
+│   │   ├── curl-edge-sg-response.png
+│   │   ├── curl-edge-uk-response.png
+│   │   ├── curl-edge-us-response.png
+│   │   ├── edge-au-response.png
+│   │   ├── edge-browser-sg.png
+│   │   ├── edge-index-response.png
+│   │   ├── edge-uk-response.png
+│   │   ├── edge-us-response.png
+│   │   ├── edinburgh-edge.png
+│   │   ├── manchester-edge.png
+│   │   └── geo-personalised-incognito-output.png
+│   │
+│   └── lambda-regional/
+│       ├── Cloudwatch-Execution.PNG
+│       ├── Cold-vs-Warm-Comparison.png
+│       ├── Regional-Lambda-Cold-Start.png
+│       ├── Regional-Lambda-Warm-Detailed-Iterations.png
+│       ├── Regional-Lambda-Warm-Execution-Summary.png
+│       ├── curl-regional-au-response.png
+│       ├── curl-regional-index-response.png
+│       ├── curl-regional-sg-response.png
+│       ├── curl-regional-uk-response.png
+│       ├── curl-regional-us-response.png
+│       ├── edinburgh-regional.png
+│       ├── geographic-comparison-graph.png
+│       ├── manchester-regional.png
+│       ├── regional-au-browser.png
+│       ├── regional-index-browser.png
+│       ├── regional-sg-browser.png
+│       ├── regional-uk-browser.png
+│       └── regional-us-browser.png
+│
+├── lambda-edge/
+│   └── index.js
+│
+├── lambda-regional/
+│   └── index.js
+│
+├── .gitignore
+├── README.md
+├── References.md
+└── Bibliography.md
 
 ```
 
@@ -455,7 +501,7 @@ The curl output below confirms that Lambda@Edge executes at the viewer-request p
 
 The browser output below demonstrates that the correct region-specific content is served to the client.
 
-![Geo-personalised website output](images/lambda-egde/edge-uk-response.png)
+![Geo-personalised website output](images/lambda-egde/geo-personalised-incognito-output.png)
 
 **Incognito Mode** 
 
